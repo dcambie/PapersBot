@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# PapersBot
+# Flowbot
 #
 # purpose:  read journal RSS feeds and tweet selected entries
 # license:  MIT License
-# author:   François-Xavier Coudert
-# e-mail:   fxcoudert@gmail.com
+# author:   Christopher Gordon Thomson
+# e-mail:   christhomson95@hotmail.com
 #
 
 import imghdr
@@ -27,14 +27,10 @@ import tweepy
 
 # This is the regular expression that selects the papers of interest
 regex = re.compile(r"""
-  (   \b(MOF|MOFs|COF|COFs|ZIF|ZIFs)\b
-    | metal.organic.framework
-    | covalent.organic.framework
-    | metal–organic.framework
-    | covalent–organic.framework
-    | imidazolate.framework
-    | porous.coordination.polymer
-    | framework.material
+  (   Flow.chemistry
+    | continuous.flow
+    | flow.synthesis
+    | flow.reactor
   )
   """, re.IGNORECASE | re.VERBOSE)
 
