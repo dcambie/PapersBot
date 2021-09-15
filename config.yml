@@ -5,7 +5,7 @@ throttle: 10
 
 # Time (in seconds) to wait between two tweets
 # Default value: 5
-wait_time: 30
+wait_time: 120
 
 # Should the feed list be randomly shuffled?
 # Avoids tweeting always the same journals first/last
