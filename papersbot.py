@@ -33,7 +33,6 @@ regex = re.compile(r"""
     | flow.reactor
     | continuous.synthesis
     | \bContinuous\b.*?\bmicroreactor\b.*?
-    |
   )
   """, re.IGNORECASE | re.VERBOSE)
 
