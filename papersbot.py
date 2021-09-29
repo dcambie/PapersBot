@@ -29,10 +29,12 @@ import tweepy
 
 # This is the regular expression that selects the papers of interest
 regex_include = re.compile(r"""
-  (   Flow.chemistry
+(   Flow.chemistry
     | continuous.flow
     | flow.synthesis
     | flow.reactor
+    | continuous.synthesis
+    | \bContinuous\b.*?\bmicroreactor\b.*?
   )
   """, re.IGNORECASE | re.VERBOSE)
 
