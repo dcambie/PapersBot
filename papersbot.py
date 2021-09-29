@@ -18,6 +18,8 @@ import sys
 import tempfile
 import time
 import urllib
+import warnings
+
 import yaml
 
 import bs4
@@ -26,7 +28,7 @@ import tweepy
 
 
 # This is the regular expression that selects the papers of interest
-regex = re.compile(r"""
+regex_include = re.compile(r"""
   (   Flow.chemistry
     | continuous.flow
     | flow.synthesis
@@ -34,6 +36,12 @@ regex = re.compile(r"""
   )
   """, re.IGNORECASE | re.VERBOSE)
 
+# This could be merged with the previous regex, but that would be less readable
+regex_exclude = re.compile(r"""
+  (   ventricular arrhythmia
+    | LVAD
+  )
+""")
 
 # We select entries based on title or summary (abstract, for some feeds)
 def entryMatches(entry):
@@ -41,12 +49,14 @@ def entryMatches(entry):
     if "title" not in entry:
         return False
 
-    if regex.search(entry.title):
-        return True
-    if "summary" in entry:
-        return regex.search(entry.summary)
-    else:
+    if regex_include.search(entry.title):
+        return False if regex_exclude.search(entry.title) else True
+
+    if "summary" not in entry:
         return False
+
+    if regex_include.search(entry.summary):
+        return False if regex_exclude.search(entry.title) else True
 
 
 # Find the URL for an image associated with the entry
@@ -157,13 +167,14 @@ class PapersBot:
         try:
             with open("config.yml", "r") as f:
                 config = yaml.safe_load(f)
-        except Except:
+        except Exception as e:
+            warnings.warn(f"Exception {e} caught!")
             config = {}
         self.throttle = config.get("throttle", 0)
         self.wait_time = config.get("wait_time", 5)
         self.shuffle_feeds = config.get("shuffle_feeds", True)
-        self.blacklist = config.get("blacklist", [])
-        self.blacklist = [re.compile(s) for s in self.blacklist]
+        self.url_blacklist = config.get("url_blacklist", [])
+        self.url_blacklist = [re.compile(s) for s in self.url_blacklist]
 
         # Shuffle feeds list
         if self.shuffle_feeds:
@@ -216,8 +227,8 @@ class PapersBot:
 
         tweet_body = title[:length] + " " + url
 
-        # URL may match our blacklist
-        for regexp in self.blacklist:
+        # URL may match our url_blacklist
+        for regexp in self.url_blacklist:
             if regexp.search(url):
                 print(f"BLACKLISTED: {tweet_body}\n")
                 self.addToPosted(entry.id)

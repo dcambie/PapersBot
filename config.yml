@@ -14,6 +14,6 @@ shuffle_feeds: true
 
 # URLs matching these regular expressions will not be tweeted
 # Used e.g. for Wiley journals that republish old content with new URLs
-blacklist:
+url_blacklist:
   - "pericles.pericles-prod.literatumonline.com"
   - "www.onlinelibrary.wiley.com"
