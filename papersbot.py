@@ -236,9 +236,16 @@ class PapersBot:
                 self.addToPosted(entry.id)
                 return
 
-        if "<category>Cover Profile</category>" in entry.description:
-            print("COVER STOYT")
-        print(entry)
+        try:
+            if "Cover Profile" in entry.tags[0]['term']:
+                print("IS A COVER!")
+        except:
+            pass
+        print(entry.tags)
+        print(entry.tags[0])
+        print(entry.tags[0]['term'])
+
+        #'tags': [{'term': 'Cover Profile', 'scheme': None, 'label': None}],
 
         media = None
         image = findImage(entry)
