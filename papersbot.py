@@ -236,6 +236,9 @@ class PapersBot:
                 self.addToPosted(entry.id)
                 return
 
+        if "<category>Cover Profile</category>" in entry.description:
+            print("COVER STOYT")
+
         media = None
         image = findImage(entry)
         image_file = downloadImage(image)
