@@ -238,14 +238,9 @@ class PapersBot:
 
         try:
             if "Cover Profile" in entry.tags[0]['term']:
-                print("IS A COVER!")
-        except:
-            pass
-        print(entry.tags)
-        print(entry.tags[0])
-        print(entry.tags[0]['term'])
-
-        #'tags': [{'term': 'Cover Profile', 'scheme': None, 'label': None}],
+                print(f"IGNORING COVER: {tweet_body}\n")
+                self.addToPosted(entry.id)
+                return
 
         media = None
         image = findImage(entry)
