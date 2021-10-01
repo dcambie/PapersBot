@@ -238,6 +238,7 @@ class PapersBot:
 
         if "<category>Cover Profile</category>" in entry.description:
             print("COVER STOYT")
+        print(entry)
 
         media = None
         image = findImage(entry)
