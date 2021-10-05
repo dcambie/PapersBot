@@ -241,6 +241,8 @@ class PapersBot:
                 print(f"IGNORING COVER: {tweet_body}\n")
                 self.addToPosted(entry.id)
                 return
+        except Exception as e:
+            pass
 
         media = None
         image = findImage(entry)
