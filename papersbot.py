@@ -10,12 +10,10 @@
 #
 
 import imghdr
-import json
 import os
 import random
 import re
 import sys
-import tempfile
 import time
 import urllib
 import warnings
@@ -34,6 +32,7 @@ regex_include = re.compile(r"""
     | flow.synthesis
     | flow.reactor
     | continuous.synthesis
+    | flow.conditions
     | \bContinuous\b.*?\bmicroreactor\b.*?
   )
   """, re.IGNORECASE | re.VERBOSE)
