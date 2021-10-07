@@ -236,7 +236,7 @@ class PapersBot:
                 return
 
         try:
-            if "Cover Profile" in entry.tags[0]['term']:
+            if any([term in entry.tags[0]['term'] for term in ("Cover Picture", "Cover Profile")]):
                 print(f"IGNORING COVER: {tweet_body}\n")
                 self.addToPosted(entry.id)
                 return
