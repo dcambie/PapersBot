@@ -34,6 +34,7 @@ regex_include = re.compile(r"""
     | continuous.synthesis
     | flow.conditions
     | \bContinuous\b.*?\bmicroreactor\b.*?
+    | flow.assisted
   )
   """, re.IGNORECASE | re.VERBOSE)
 
