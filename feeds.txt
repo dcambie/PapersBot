@@ -87,6 +87,8 @@ http://science.sciencemag.org/rss/express.xml
 https://onlinelibrary.wiley.com/feed/15213773/most-recent
 # Chemistry a european j
 https://chemistry-europe.onlinelibrary.wiley.com/feed/15213765/most-recent
+# Asian J of Org Chem
+https://chemistry-europe.onlinelibrary.wiley.com/feed/21935815/most-recent
 # Chemistry methods
 https://chemistry-europe.onlinelibrary.wiley.com/feed/26289725/most-recent
 # Eur JOC
