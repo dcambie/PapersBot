@@ -119,3 +119,8 @@ https://chemrxiv.org/engage/rss/chemrxiv
 
 # BJOC
 https://www.beilstein-journals.org/bjoc/content/rss.xml
+
+# Synthesis
+https://www.thieme-connect.de/rss/thieme/en/10.1055-s-00000084.xml
+# SynLett
+https://www.thieme-connect.de/rss/thieme/en/10.1055-s-00000083.xml
