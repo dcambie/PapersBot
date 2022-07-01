@@ -115,4 +115,4 @@ https://www.cell.com/chem/inpress.rss
 
 
 # Preprints
-https://chemrxiv.org/rss/portal/chemrxiv
+https://chemrxiv.org/engage/rss/chemrxiv
