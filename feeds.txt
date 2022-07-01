@@ -116,3 +116,6 @@ https://www.cell.com/chem/inpress.rss
 
 # Preprints
 https://chemrxiv.org/engage/rss/chemrxiv
+
+# BJOC
+https://www.beilstein-journals.org/bjoc/content/rss.xml
